@@ -15,9 +15,6 @@ shutdown.ui
 flyberry-manager.cpp 
 Shutdown.cpp)
 
-# Create a simple configuration header
-configure_file(config.h.in config.h)
-
 # Include the configuration header in the build
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}" -lwiringPi)
 

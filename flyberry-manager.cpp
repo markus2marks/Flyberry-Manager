@@ -1,6 +1,5 @@
 #include <iostream>
 #include <unistd.h>
-#include "config.h"
 #include <wiringPi.h>
 #include "Shutdown.h"
 #include <QApplication>
