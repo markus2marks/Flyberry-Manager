@@ -26,7 +26,7 @@ public:
     ~ShutDown();
 
 public slots:
-	void setVisible(int value);
+	void setVisible(bool value);
 
 protected:
     void closeEvent(QCloseEvent *e);
