@@ -25,6 +25,9 @@ public:
     explicit ShutDown(QWidget *parent = 0);
     ~ShutDown();
 
+public slots:
+	void setVisible(int value);
+
 protected:
     void closeEvent(QCloseEvent *e);
 

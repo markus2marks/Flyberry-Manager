@@ -13,7 +13,8 @@ qt_standard_project_setup()
 qt_add_executable(${PROJECT_NAME}
 shutdown.ui
 flyberry-manager.cpp 
-Shutdown.cpp)
+Shutdown.cpp
+Gpio.cpp)
 
 # Include the configuration header in the build
 target_include_directories(${PROJECT_NAME} PUBLIC "${PROJECT_BINARY_DIR}" -lwiringPi)
@@ -25,4 +26,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::OpenGLWidgets
     Qt6::Widgets
     Qt6::Core5Compat
+    wiringPi
 )

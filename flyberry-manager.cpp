@@ -4,24 +4,23 @@
 #include "Shutdown.h"
 #include <QApplication>
 #include <QTextCodec>
+#include "Gpio.h"
 
 #define SWITCH_ON_OFF_GPIO 0
 
-ShutDown* test;
+void shutdownInterrupt();
+
+static GPIO input(0, GPIO_INPUT, shutdownInterrupt);
 
 void shutdownInterrupt(void)
 {
-	if(test != 0x00)
-	{
-		test->show();
-	}
+	  input.isrCallback();
 }
 
 
 int main(int argc, char **argv) {
 
-#ifdef __arm__
-		wiringPiSetupGpio();
+	wiringPiSetupGpio();
 
 	// set Pin 17/0 generate an interrupt on high-to-low transitions
 	// and attach myInterrupt() to the interrupt
@@ -29,15 +28,13 @@ int main(int argc, char **argv) {
 	  fprintf (stderr, "Unable to setup ISR: %s\n", strerror (errno));
 	  return 1;
 	}
-#endif
 
 	QApplication a(argc, argv);
     QTextCodec *codec = QTextCodec::codecForName("UTF-8");
 	// display counter value every second.
 
     ShutDown w;
-    test = &w;
 //    w.show();
-
+//    QObject::connect(&input, &GPIO::inputChanged, &w, &ShutDown::setVisible);
     return a.exec();
 }

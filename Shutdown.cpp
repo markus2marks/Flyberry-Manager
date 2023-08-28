@@ -146,4 +146,7 @@ void ShutDown::slot_timer()
     count--;
 }
 
-
+void ShutDown::setVisible(int value)
+{
+	this->show();
+}
