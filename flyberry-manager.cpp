@@ -35,6 +35,6 @@ int main(int argc, char **argv) {
 
     ShutDown w;
 //    w.show();
-//    QObject::connect(&input, &GPIO::inputChanged, &w, &ShutDown::setVisible);
+    QObject::connect(&input, &GPIO::inputChanged, &w, &ShutDown::setVisible);
     return a.exec();
 }
