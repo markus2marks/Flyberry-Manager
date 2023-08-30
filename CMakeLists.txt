@@ -11,7 +11,6 @@ qt_standard_project_setup()
 
 # This project will output an executable file
 qt_add_executable(${PROJECT_NAME}
-shutdown.ui
 flyberry-manager.cpp 
 Shutdown.cpp
 Gpio.cpp)

@@ -12,7 +12,10 @@
 #include <QCloseEvent>
 #include <QTimer>
 #include <QTime>
-
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QCoreApplication>
+#include <QProcess>
 
 #define SET_SHUTDOWN_VISIBLE 0
 #define SET_SHUTDOWN_INVISIBLE 1
@@ -27,35 +30,21 @@ class ShutDown : public QMainWindow
 
 public:
     explicit ShutDown(QWidget *parent = 0);
-    ~ShutDown();
+//    ~ShutDown();
 
 public slots:
 	void setVisible(int value);
 
-protected:
-    void closeEvent(QCloseEvent *e);
-
 private slots:
-    void on_groupBox_clicked(bool checked);
-
-    void on_btn_timer_clicked();
-
-    void on_btn_cancel_clicked();
-
-    void on_btn_showDown_clicked();
-
-    void on_btn_reboot_clicked();
-
-    void on_btn_exit_clicked();
-
     void slot_timer();
 
 private:
-    Ui::ShutDown *ui;
-
     QTimer *timer;
-    QTime time1;
-    int count;              //剩余秒数
+    int counter;
+    QLabel *labelCounter;
+    QLabel *labelText;
+    QVBoxLayout *layout;
+    QWidget *window;
 };
 
 
