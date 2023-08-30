@@ -79,5 +79,6 @@ void ShutDown::setVisible(int value)
 	{
 		this->hide();
 		counter = 3;
+		timer->stop();
 	}
 }
