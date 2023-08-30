@@ -74,6 +74,7 @@ void ShutDown::setVisible(int value)
 		this->show();
 	    // msec
 	    timer->start(1000);
+	    labelCounter->setNum(counter);
 	}
 	else
 	{
