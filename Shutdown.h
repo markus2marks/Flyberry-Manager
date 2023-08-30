@@ -13,6 +13,10 @@
 #include <QTimer>
 #include <QTime>
 
+
+#define SET_SHUTDOWN_VISIBLE 0
+#define SET_SHUTDOWN_INVISIBLE 1
+
 namespace Ui {
 class ShutDown;
 }
@@ -26,7 +30,7 @@ public:
     ~ShutDown();
 
 public slots:
-	void setVisible(bool value);
+	void setVisible(int value);
 
 protected:
     void closeEvent(QCloseEvent *e);
